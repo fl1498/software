@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>数据管理系统</title>
+  <style>
+    body{
+      background-image: url('tupian.jpg');
+    }
+    h1{
+      text-align: center;
+      font-family: 宋体;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+      font-family: 宋体;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>数据管理系统</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>名称</th>
+        <th>描述</th>
+        <th>备注</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- 这里可以通过 JavaScript 动态添加数据行 -->
+    </tbody>
+  </table>
+
+  <form>
+    <label for="id">ID：</label>
+    <input type="text" id="id" name="id"><br>
+    <label for="name">名称：</label>
+    <input type="text" id="name" name="name"><br>
+    <label for="description">描述：</label>
+    <input type="text" id="description" name="description"><br>
+    <label for="remake">备注:</label>
+    <input type="text" id="remake" name="remake"><br>
+    <input type="submit" value="添加数据">
+  </form>
+
+  <script>
+    // 提交表单时的处理逻辑可以在这里添加
+    document.querySelector('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      // 获取输入的值
+      const id = document.getElementById('id').value;
+      const name = document.getElementById('name').value;
+      const description = document.getElementById('description').value;
+      const remake = document.getElementById('remake').value;
+      // 创建新的数据行并添加到表格中
+      const table = document.querySelector('table tbody');
+      const newRow = table.insertRow(-1);
+      newRow.innerHTML = `<td>${id}</td><td>${name}</td><td>${description}</td>`;
+      // 清空输入框
+      document.getElementById('id').value = '';
+      document.getElementById('name').value = '';
+      document.getElementById('description').value = '';
+      document.getElementById('remake').value = '';
+    });
+  </script>
+</body>
+</html>
